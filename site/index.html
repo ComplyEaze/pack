@@ -1060,16 +1060,19 @@
           document.querySelectorAll(".sec h2, .oss h2").forEach((h) => {
             const words = h.textContent.trim().split(/\s+/);
             h.setAttribute("aria-label", h.textContent.trim());
-            h.innerHTML = words
-              .map(
-                (w, i) =>
-                  "<span class='hw' aria-hidden='true'><span style='transition-delay:" +
-                  (i * 0.055).toFixed(3) +
-                  "s'>" +
-                  w +
-                  "</span></span>",
-              )
-              .join(" ");
+            // rebuilt with DOM calls, never by re-parsing text as HTML
+            h.textContent = "";
+            words.forEach((w, i) => {
+              const outer = document.createElement("span"),
+                inner = document.createElement("span");
+              outer.className = "hw";
+              outer.setAttribute("aria-hidden", "true");
+              inner.style.transitionDelay = (i * 0.055).toFixed(3) + "s";
+              inner.textContent = w;
+              outer.appendChild(inner);
+              h.appendChild(outer);
+              if (i < words.length - 1) h.appendChild(document.createTextNode(" "));
+            });
             h.classList.add("armed");
             hio.observe(h);
           });
