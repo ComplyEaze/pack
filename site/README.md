@@ -16,9 +16,9 @@ deploy time.
   `/support`, `/privacy` and `/terms`; the Google OAuth consent screen uses
   `/release-automation`, `/privacy` and `/terms`. `build.sh` also writes each page as `name.html`,
   so Pages serves the address without a trailing slash directly. Do not move these paths.
-- The carried-over privacy notice and docs describe the previous site and older releases (for
-  example Sentry diagnostics, three hosts, v0.3.x). Re-derive them from the code before the
-  deploy is switched on.
+- The privacy notice and docs were updated on 7 October 2026 for this site and the v0.5.0 Store
+  build; the storage list now links to the README's Extension Storage section, which is the
+  maintained inventory. The terms keep their "alpha" wording until the owner revises them.
 - `gst/`, `changelog/`, `source/`, `status/` — redirects for retired addresses.
 - `build.sh` — run by the deploy: copies this folder, writes the `name.html` copies, self-hosts
   the fonts with their OFL licences, and bakes in the GitHub star count (shown from 5 stars;

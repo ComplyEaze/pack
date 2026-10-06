@@ -37,7 +37,7 @@ for f in funneldisplay funnelsans geistmono; do
   curl -fsSL "https://raw.githubusercontent.com/google/fonts/main/ofl/$f/OFL.txt" -o "$out/fonts/OFL-$f.txt"
 done
 
-repo="${GH_REPO:-lamemustafa/pack}"
+repo="${GH_REPO:-ComplyEaze/pack}"
 stars="$(curl -fsSL -H 'Accept: application/vnd.github+json' "https://api.github.com/repos/$repo" | sed -nE 's/.*"stargazers_count": *([0-9]+).*/\1/p' | head -1 || true)"
 if [ -n "$stars" ] && [ "$stars" -ge 5 ]; then
   label="$stars"

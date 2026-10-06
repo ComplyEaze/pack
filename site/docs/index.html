@@ -6,7 +6,7 @@
     <title>Docs · ComplyEaze Pack</title>
     <meta
       name="description"
-      content="Build, load, troubleshoot, and clear local data for the ComplyEaze Pack open-source alpha."
+      content="Build, load, troubleshoot, and clear local data for the ComplyEaze Pack open-source beta."
     />
     <link rel="canonical" href="https://pack.complyeaze.com/docs" />
     <meta name="theme-color" content="#f3f6f0" />
@@ -19,7 +19,7 @@
     <meta property="og:title" content="Docs · ComplyEaze Pack" />
     <meta
       property="og:description"
-      content="Build, load, troubleshoot, and clear local data for the ComplyEaze Pack open-source alpha."
+      content="Build, load, troubleshoot, and clear local data for the ComplyEaze Pack open-source beta."
     />
     <meta property="og:image" content="https://pack.complyeaze.com/og.png" />
     <meta property="og:image:width" content="1200" />
@@ -61,12 +61,12 @@
     <div class="wrap">
       <main class="doc" id="main-content">
         <div>
-          <p class="pill">Developer / tester alpha</p>
+          <p class="pill">Pre-1.0 beta</p>
           <h1>Pack documentation</h1>
           <div>
-            Pack has a public Chrome Web Store V0 listing and remains source-reviewable. These docs
-            separate the Store-published v0.3.2 package from reviewed source v0.3.3 so testers can
-            understand exactly what they are loading.
+            Pack has a public Chrome Web Store V0 listing and remains source-reviewable. The Chrome
+            Web Store has the v0.5.0 beta, and these docs also cover building that same version from
+            source, so you can check exactly what you are loading.
           </div>
         </div>
         <div>
@@ -102,8 +102,8 @@
                         <h3>Open a separate Chrome profile</h3>
                       </div>
                       <p>
-                        Use a browser profile you control for alpha testing. Sign in to the GST
-                        Portal directly in that profile.
+                        Use a browser profile you control for testing. Sign in to the GST Portal
+                        directly in that profile.
                       </p>
                     </article>
                     <article class="card">
@@ -112,11 +112,9 @@
                         <h3>Open the current Chrome Web Store listing or build from source</h3>
                       </div>
                       <p>
-                        The current Chrome Web Store V0 listing is available for v0.3.2. Reviewed
-                        source v0.3.3 is newer, so build from source for v0.3.3 audit and
-                        reproduction until its own Store publication evidence is recorded. Enable
-                        Developer mode at chrome://extensions, choose Load unpacked, and select
-                        .output/chrome-mv3 from your local build.
+                        The Chrome Web Store listing has the v0.5.0 beta. To audit or reproduce it,
+                        build tag v0.5.0 from source. Enable Developer mode at chrome://extensions,
+                        choose Load unpacked, and select .output/chrome-mv3 from your local build.
                       </p>
                     </article>
                     <article class="card">
@@ -125,8 +123,8 @@
                         <h3>Open the supported GST page</h3>
                       </div>
                       <p>
-                        Navigate to the supported filed GSTR‑3B or GSTR‑1 download area for an
-                        account and period you are authorised to access.
+                        Navigate to the supported filed GSTR‑3B or GSTR‑1, or auto-drafted GSTR‑2B,
+                        download area for an account and period you are authorised to access.
                       </p>
                     </article>
                     <article class="card">
@@ -152,9 +150,9 @@
                 </div>
                 <div>
                   <div>
-                    <pre><code>git clone https://github.com/lamemustafa/pack.git
+                    <pre><code>git clone https://github.com/ComplyEaze/pack.git
 cd pack
-git checkout 94318f516645819abe8627555fa6e8ab2cd89842
+git checkout v0.5.0
 nvm use
 corepack enable
 pnpm install --frozen-lockfile
@@ -169,7 +167,7 @@ pnpm run verify:package</code></pre>
                           Expected build output: <code>.output/chrome-mv3</code>. Load that
                           directory at <code>chrome://extensions</code>. The repository default
                           branch may differ from the reviewed source commit shown here; stay on the
-                          pinned commit when reproducing this public page.
+                          tag when reproducing this public page.
                         </p>
                       </div>
                     </div>
@@ -192,6 +190,15 @@ pnpm run verify:package</code></pre>
                         <h3>scripting</h3>
                         <div>
                           Inspects and operates supported controls on exact GST Portal pages.
+                        </div>
+                      </article>
+                      <article class="card">
+                        <h3>offscreen</h3>
+                        <div>
+                          Builds a ZIP from selected documents in the browser, staging them
+                          temporarily in browser-local storage (OPFS). Pack removes them after a
+                          confirmed export or an explicit discard, and keeps them if that cleanup
+                          fails.
                         </div>
                       </article>
                       <article class="card">
@@ -358,17 +365,17 @@ pnpm run verify:package</code></pre>
           </div>
           <div>
             <h4>Project</h4>
-            <a href="https://github.com/lamemustafa/pack" target="_blank" rel="noopener">GitHub</a
+            <a href="https://github.com/ComplyEaze/pack" target="_blank" rel="noopener">GitHub</a
             ><a href="../support/">Support</a
-            ><a href="https://github.com/lamemustafa/pack/issues" target="_blank" rel="noopener"
+            ><a href="https://github.com/ComplyEaze/pack/issues" target="_blank" rel="noopener"
               >Report an issue</a
             ><a
-              href="https://github.com/lamemustafa/pack/blob/HEAD/CHANGELOG.md"
+              href="https://github.com/ComplyEaze/pack/blob/HEAD/CHANGELOG.md"
               target="_blank"
               rel="noopener"
               >Changelog</a
             ><a
-              href="https://github.com/lamemustafa/pack/blob/HEAD/SECURITY.md"
+              href="https://github.com/ComplyEaze/pack/blob/HEAD/SECURITY.md"
               target="_blank"
               rel="noopener"
               >Security policy</a
@@ -378,7 +385,7 @@ pnpm run verify:package</code></pre>
             <h4>Legal</h4>
             <a href="../privacy/">Privacy Policy</a><a href="../terms/">Terms of Service</a
             ><a
-              href="https://github.com/lamemustafa/pack/blob/HEAD/LICENSE"
+              href="https://github.com/ComplyEaze/pack/blob/HEAD/LICENSE"
               target="_blank"
               rel="noopener"
               >License</a
