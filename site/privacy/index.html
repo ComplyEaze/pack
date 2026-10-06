@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Privacy · ComplyEaze Pack</title>
+    <meta
+      name="description"
+      content="Pack privacy notice for extension storage, GST Portal interaction, website diagnostics, and support reports."
+    />
+    <link rel="canonical" href="https://pack.complyeaze.com/privacy" />
+    <meta name="theme-color" content="#f3f6f0" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ComplyEaze Pack" />
+    <meta property="og:url" content="https://pack.complyeaze.com/privacy" />
+    <meta property="og:title" content="Privacy · ComplyEaze Pack" />
+    <meta
+      property="og:description"
+      content="Pack privacy notice for extension storage, GST Portal interaction, website diagnostics, and support reports."
+    />
+    <meta property="og:image" content="https://pack.complyeaze.com/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="../fonts/fonts.css" />
+    <link rel="stylesheet" href="../assets/site.css" />
+    <link rel="stylesheet" href="../assets/doc.css" />
+  </head>
+  <body>
+    <div class="topbar scrolled" id="topbar">
+      <div class="wrap">
+        <nav aria-label="Main">
+          <a class="brand" href="../" aria-label="ComplyEaze Pack home"
+            ><svg class="mk" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+              <rect width="64" height="64" rx="15" fill="#1d3b2a" />
+              <path
+                fill="#f3f6f0"
+                fill-rule="evenodd"
+                d="M19 13.5h19.5L47 22v7.5A10.5 10.5 0 0 1 36.5 40H28v10.5h-9z M28 24h8a3.75 3.75 0 0 1 0 7.5h-8z"
+              />
+              <path fill="#e8692c" d="M38.5 13.5L47 22h-5.5a3 3 0 0 1 -3 -3z" /></svg
+            ><b>ComplyEaze <span>Pack</span></b></a
+          >
+          <div class="links">
+            <a href="../#try">Try it</a><a href="../docs/">Docs</a><a href="../support/">Support</a
+            ><a href="../privacy/">Privacy</a>
+          </div>
+          <a
+            class="btn"
+            href="https://chromewebstore.google.com/detail/complyeaze-pack-gst-gstr/nfnbhekccajjfgkppolomflaeledoccb"
+            target="_blank"
+            rel="noopener"
+            >Add to Chrome <span class="arrow">→</span></a
+          >
+        </nav>
+      </div>
+    </div>
+    <div class="wrap">
+      <main class="doc" id="main-content">
+        <div>
+          <p class="pill">Last updated 4 July 2026</p>
+          <h1>Pack privacy notice</h1>
+          <div>
+            This notice explains what Pack handles in the browser extension, on this website, and
+            when you contact us.
+          </div>
+        </div>
+        <div>
+          <div>
+            <section>
+              <div><h2>Scope</h2></div>
+              <div>
+                <div class="g">
+                  <article class="card">
+                    <h3>Pack browser extension</h3>
+                    <div>
+                      <div>
+                        <p>
+                          Pack runs in the user&#x27;s browser, uses Chrome extension storage inside
+                          the current browser profile, and writes selected downloads to the
+                          user&#x27;s machine.
+                        </p>
+                        <ul>
+                          <li><span>No extension analytics or telemetry.</span></li>
+                          <li>
+                            <span
+                              >The local-download workflow does not upload GST files or document
+                              contents to ComplyEaze.</span
+                            >
+                          </li>
+                          <li>
+                            <span
+                              >Local storage may contain pack:install with local extension version,
+                              install timestamp, and local-only metadata, plus
+                              pack:active-filed-returns-run, pack:full-fiscal-year-ledger,
+                              pack:filed-returns-target-review, and pack:last-manifest.</span
+                            >
+                          </li>
+                          <li>
+                            <span
+                              >Session storage may contain pack:last-context,
+                              pack:last-filed-returns-observation, and
+                              pack:last-filed-returns-flow-summary.</span
+                            >
+                          </li>
+                          <li>
+                            <span
+                              >Clear local Pack data removes Pack local/session extension state
+                              after active or unresolved recovery state is resolved.</span
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="card">
+                    <h3>GST Portal interaction</h3>
+                    <div>
+                      <div>
+                        <p>
+                          The user opens and authenticates to the GST Portal directly. Pack acts
+                          only on exact GST Portal hosts from the active browser session and does
+                          not ask for or store GST Portal credentials, OTPs, CAPTCHA responses,
+                          cookies, or session tokens.
+                        </p>
+                        <ul>
+                          <li><span>https://www.gst.gov.in/*</span></li>
+                          <li><span>https://services.gst.gov.in/*</span></li>
+                          <li><span>https://return.gst.gov.in/*</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="card">
+                    <h3>Pack website diagnostics</h3>
+                    <div>
+                      <div>
+                        <p>
+                          The Pack website is separate from the browser extension. GST credentials,
+                          session tokens, and downloaded GST files are not sent to ComplyEaze by the
+                          extension workflow. Pack does not collect or transmit extension analytics
+                          or telemetry.
+                        </p>
+                        <ul>
+                          <li><span>Website page analytics are disabled.</span></li>
+                          <li>
+                            <span
+                              >Pack pages use Sentry error diagnostics in the Pack telemetry profile
+                              with replay, tracing, logs, request bodies, cookies, and default PII
+                              disabled; full query strings are stripped from request URLs before
+                              Pack website diagnostics leave the app.</span
+                            >
+                          </li>
+                          <li>
+                            <span
+                              >Pack pages do not initialize or use the ComplyEaze app session.</span
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="card">
+                    <h3>Support and security reports</h3>
+                    <div>
+                      <div>
+                        <p>
+                          Email support, GitHub issues when available, pull requests, and private
+                          security reports receive only what a visitor or reporter chooses to send.
+                          Reports must use synthetic or redacted material.
+                        </p>
+                        <ul>
+                          <li>
+                            <span
+                              >Do not send real GST Portal credentials, OTPs, CAPTCHA responses,
+                              session cookies, taxpayer files, portal HTML, raw network captures, or
+                              unredacted screenshots.</span
+                            >
+                          </li>
+                          <li>
+                            <span
+                              >Security reports go to security@complyeaze.com; general questions go
+                              to contact@complyeaze.com.</span
+                            >
+                          </li>
+                          <li>
+                            <span
+                              >Public issues, pull requests, screenshots, and support messages must
+                              not include taxpayer identifiers, credentials, portal captures, or
+                              downloaded GST files.</span
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </section>
+            <section>
+              <div>
+                <h2>Pack browser extension</h2>
+                <div>
+                  The extension processes supported GST Portal page state locally in your browser to
+                  find and trigger filed GSTR‑3B PDF, filed GSTR‑1 summary PDF, and optional GSTR‑1
+                  e-invoice details Excel downloads.
+                </div>
+              </div>
+              <div>
+                <dl>
+                  <div class="card">
+                    <dt>Rendered GST page text and controls</dt>
+                    <dd>
+                      Read transiently in the browser to classify and operate supported GST Portal
+                      pages; raw page text is not transmitted to ComplyEaze.
+                    </dd>
+                  </div>
+                  <div class="card">
+                    <dt>GST origin and page kind</dt>
+                    <dd>
+                      Reduced to allowlisted context labels and stored temporarily in extension
+                      session storage.
+                    </dd>
+                  </div>
+                  <div class="card">
+                    <dt>Selected financial year and period</dt>
+                    <dd>
+                      Processed locally to identify requested filed GSTR‑3B and GSTR‑1 downloads;
+                      local run, full-year ledger, and unresolved target-review state may remain in
+                      extension local storage until cleared or the extension is removed.
+                    </dd>
+                  </div>
+                  <div class="card">
+                    <dt>Download metadata</dt>
+                    <dd>
+                      Examined transiently to correlate the requested GST-origin PDF or Excel file
+                      and verify completion; raw filenames, local paths, referrers, and URLs are not
+                      transmitted or persisted.
+                    </dd>
+                  </div>
+                  <div class="card">
+                    <dt>Installation metadata</dt>
+                    <dd>
+                      Stored in extension local storage as pack:install with local extension
+                      version, install timestamp, and local-only metadata until cleared or the
+                      extension is removed.
+                    </dd>
+                  </div>
+                  <div class="card">
+                    <dt>Local demo manifest</dt>
+                    <dd>
+                      Stored in extension local storage as pack:last-manifest for the synthetic demo
+                      until clear-data runs or the extension is removed.
+                    </dd>
+                  </div>
+                  <div class="card">
+                    <dt>GST PDF or Excel file</dt>
+                    <dd>
+                      Saved by Chrome to the user&#x27;s configured download location; Pack does not
+                      upload downloaded GST files to ComplyEaze.
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </section>
+            <section>
+              <div>
+                <h2>GST Portal interaction</h2>
+                <div>
+                  You open and authenticate to the GST Portal directly. Pack acts only on exact GST
+                  Portal hosts from the active browser session.
+                </div>
+              </div>
+              <div>
+                <ul>
+                  <li>
+                    <span
+                      >Pack does not ask for or store GST Portal credentials, OTPs, CAPTCHA
+                      responses, cookies, or session tokens.</span
+                    >
+                  </li>
+                  <li>
+                    <span>Pack does not automate OTP, CAPTCHA, login, or consent challenges.</span>
+                  </li>
+                  <li><span>https://www.gst.gov.in/*</span></li>
+                  <li><span>https://services.gst.gov.in/*</span></li>
+                  <li><span>https://return.gst.gov.in/*</span></li>
+                </ul>
+              </div>
+            </section>
+            <section>
+              <div>
+                <h2>Pack website</h2>
+                <div>
+                  The Pack website is separate from the browser extension. GST credentials, session
+                  tokens, and downloaded GST files are not sent to ComplyEaze by the extension
+                  workflow. Pack does not collect or transmit extension analytics or telemetry.
+                </div>
+              </div>
+              <div>
+                <dl>
+                  <div class="card">
+                    <dt>Website analytics</dt>
+                    <dd>disabled</dd>
+                  </div>
+                  <div class="card">
+                    <dt>Error diagnostics</dt>
+                    <dd>
+                      Pack pages use Sentry error diagnostics in the Pack telemetry profile with
+                      replay, tracing, logs, request bodies, cookies, and default PII disabled; full
+                      query strings are stripped from request URLs before Pack website diagnostics
+                      leave the app.
+                    </dd>
+                  </div>
+                  <div class="card">
+                    <dt>Infrastructure logs</dt>
+                    <dd>
+                      Standard hosting logs may include ordinary request metadata such as IP
+                      address, user agent, timestamp, path, status, and referrer.
+                    </dd>
+                  </div>
+                  <div class="card">
+                    <dt>ComplyEaze app session</dt>
+                    <dd>not initialized or used by Pack pages</dd>
+                  </div>
+                </dl>
+              </div>
+            </section>
+            <section>
+              <div>
+                <h2>Your privacy choices and requests</h2>
+                <div>
+                  Use this route for website, support, and security-report data that ComplyEaze can
+                  access. Extension-local state that never leaves your browser profile must be
+                  cleared locally.
+                </div>
+              </div>
+              <div>
+                <ul>
+                  <li>
+                    <span
+                      >Contact contact@complyeaze.com to request access, correction, deletion, or
+                      grievance review for Pack website/support data ComplyEaze can access.</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      >Send private security reports to security@complyeaze.com, not public
+                      issues.</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      >ComplyEaze cannot retrieve downloaded GST files, GST Portal credentials,
+                      cookies, OTPs, CAPTCHA responses, or extension-local data that never leaves
+                      your browser profile.</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      >Clear local Pack data removes Pack local/session extension state after active
+                      or unresolved recovery state is resolved; removing the extension or browser
+                      profile also removes extension-local state.</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </section>
+            <section>
+              <div>
+                <h2>DPDP 2026 readiness workstream</h2>
+                <div>
+                  Engineering readiness target for DPDP 2026 obligations; this is not a legal
+                  certification or compliance guarantee.
+                </div>
+              </div>
+              <div>
+                <dl>
+                  <div class="card">
+                    <dt>Data-principal request handling (active)</dt>
+                    <dd>
+                      ComplyEaze Pack maintainer: Maintain a dated response log for Pack
+                      website/support access, correction, deletion, and grievance requests.
+                    </dd>
+                  </div>
+                  <div class="card">
+                    <dt>Support and security intake minimisation (active)</dt>
+                    <dd>
+                      Support maintainer: Keep public support templates and private security-report
+                      guidance aligned with the prohibited sensitive attachment list.
+                    </dd>
+                  </div>
+                  <div class="card">
+                    <dt>Processor and recipient review (active)</dt>
+                    <dd>
+                      Privacy maintainer: Review hosting logs, Sentry diagnostics, GitHub, and email
+                      inbox handling before broad public distribution.
+                    </dd>
+                  </div>
+                  <div class="card">
+                    <dt>Security incident and breach workflow (todo)</dt>
+                    <dd>
+                      Security maintainer: Document intake, triage, user-notification,
+                      authority-notification, containment, and post-incident review steps before
+                      claiming DPDP compliance.
+                    </dd>
+                  </div>
+                  <div class="card">
+                    <dt>External legal review (todo)</dt>
+                    <dd>
+                      Legal reviewer: Record legal sign-off against applicable DPDP Act and Rules
+                      obligations before any compliance badge or certification wording.
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </section>
+            <section>
+              <div>
+                <h2>Who receives data</h2>
+                <div>
+                  Pack separates browser-local extension processing from website diagnostics,
+                  support, and public-source collaboration.
+                </div>
+              </div>
+              <div>
+                <dl>
+                  <div class="card">
+                    <dt>Chrome browser profile</dt>
+                    <dd>
+                      Stores extension-local Pack state and writes selected downloads to the
+                      user&#x27;s configured download location.
+                    </dd>
+                  </div>
+                  <div class="card">
+                    <dt>Hosting provider logs</dt>
+                    <dd>
+                      May process ordinary Pack website request metadata such as IP address, user
+                      agent, timestamp, path, status, and referrer.
+                    </dd>
+                  </div>
+                  <div class="card">
+                    <dt>Sentry diagnostics</dt>
+                    <dd>
+                      Receives sanitized Pack website error diagnostics under the Pack telemetry
+                      profile.
+                    </dd>
+                  </div>
+                  <div class="card">
+                    <dt>GitHub issues and pull requests</dt>
+                    <dd>
+                      Receives public reports a visitor chooses to submit, using synthetic or
+                      redacted material only.
+                    </dd>
+                  </div>
+                  <div class="card">
+                    <dt>Email support inboxes</dt>
+                    <dd>
+                      Receives support, privacy, and security-report messages a visitor chooses to
+                      send.
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </section>
+            <section>
+              <div>
+                <h2>Support and security reports</h2>
+                <div>
+                  Public issues, pull requests, email support, and private security reports receive
+                  only what a visitor or reporter chooses to send.
+                </div>
+              </div>
+              <div>
+                <ul>
+                  <li>
+                    <span
+                      >Do not send real GST Portal credentials, OTPs, CAPTCHA responses, session
+                      cookies, taxpayer files, portal HTML, raw network captures, or unredacted
+                      screenshots.</span
+                    >
+                  </li>
+                  <li>
+                    <span>GSTIN, PAN, Aadhaar, taxpayer names, client names, or trade names.</span>
+                  </li>
+                  <li>
+                    <span
+                      >Passwords, OTPs, CAPTCHA responses, cookies, session tokens, or
+                      credentials.</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      >ARNs, return values, tax amounts, downloaded GST files, real filenames,
+                      portal HTML, headers, cookies, raw network captures, or unredacted
+                      screenshots.</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      >Support and security submissions are retained only as needed to respond,
+                      investigate, and maintain an audit trail.</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </section>
+            <section>
+              <div>
+                <h2>Chrome Limited Use</h2>
+                <div>
+                  Pack&#x27;s extension data use is limited to providing or improving the
+                  user-facing supported download workflow. Extension data is not used for
+                  advertising, lending, creditworthiness, unrelated profiling, or sold to third
+                  parties.
+                </div>
+              </div>
+              <div>
+                <ul>
+                  <li><span>No extension analytics or telemetry.</span></li>
+                  <li><span>No advertising or session-replay SDK in the extension.</span></li>
+                  <li>
+                    <span
+                      >The extension workflow does not upload GST files or GST document contents to
+                      ComplyEaze.</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      >Local extension data can be cleared through Clear local Pack data after
+                      active or unresolved recovery state is resolved, browser extension removal, or
+                      browser profile cleanup.</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <div class="trust">
+          <div>
+            <b>GST Portal</b><span>Pack works inside the session you signed into yourself.</span>
+          </div>
+          <div>
+            <b>Credentials</b
+            ><span>Never captures your password, OTP, CAPTCHA, cookies or session tokens.</span>
+          </div>
+          <div>
+            <b>Documents</b><span>Saved to your computer. No upload in the download flow.</span>
+          </div>
+          <div>
+            <b>Permissions</b><span>Four GST hosts, listed in the manifest. No analytics.</span>
+          </div>
+        </div>
+        <p class="sample-note">Every name, period and status shown on this site is sample data.</p>
+        <div class="fcols">
+          <div>
+            <a class="brand" href="../" aria-label="ComplyEaze Pack">
+              <svg class="mk" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+                <rect width="64" height="64" rx="15" fill="#1d3b2a" />
+                <path
+                  fill="#f3f6f0"
+                  fill-rule="evenodd"
+                  d="M19 13.5h19.5L47 22v7.5A10.5 10.5 0 0 1 36.5 40H28v10.5h-9z M28 24h8a3.75 3.75 0 0 1 0 7.5h-8z"
+                />
+                <path fill="#e8692c" d="M38.5 13.5L47 22h-5.5a3 3 0 0 1 -3 -3z" />
+              </svg>
+              <b>ComplyEaze <span>Pack</span></b>
+            </a>
+            <p class="about">
+              A Chrome extension that saves your GST returns and statements from the GST Portal
+              session you already signed into.
+            </p>
+          </div>
+          <div>
+            <h4>Product</h4>
+            <a
+              href="https://chromewebstore.google.com/detail/complyeaze-pack-gst-gstr/nfnbhekccajjfgkppolomflaeledoccb"
+              target="_blank"
+              rel="noopener"
+              >Add to Chrome</a
+            ><a href="../#try">Try the sample</a><a href="../#docs">Documents</a>
+          </div>
+          <div>
+            <h4>Project</h4>
+            <a href="https://github.com/lamemustafa/pack" target="_blank" rel="noopener">GitHub</a
+            ><a href="../support/">Support</a
+            ><a href="https://github.com/lamemustafa/pack/issues" target="_blank" rel="noopener"
+              >Report an issue</a
+            ><a
+              href="https://github.com/lamemustafa/pack/blob/HEAD/CHANGELOG.md"
+              target="_blank"
+              rel="noopener"
+              >Changelog</a
+            ><a
+              href="https://github.com/lamemustafa/pack/blob/HEAD/SECURITY.md"
+              target="_blank"
+              rel="noopener"
+              >Security policy</a
+            >
+          </div>
+          <div>
+            <h4>Legal</h4>
+            <a href="../privacy/">Privacy Policy</a><a href="../terms/">Terms of Service</a
+            ><a
+              href="https://github.com/lamemustafa/pack/blob/HEAD/LICENSE"
+              target="_blank"
+              rel="noopener"
+              >License</a
+            >
+          </div>
+        </div>
+        <div class="legal">
+          <p>ComplyEaze Pack is open source under the Apache License, Version 2.0. Pre-1.0 beta.</p>
+          <p>
+            ComplyEaze Pack is an independent third-party tool. It is not affiliated with, endorsed
+            by, or operated by GSTN, CBIC, or the Government of India.
+          </p>
+          <p>
+            Published by SPMS Comply Eaze Solutions LLP, a limited liability partnership registered
+            with limited liability under the Limited Liability Partnership Act, 2008, LLP
+            identification number ACI-9231. Registered office: S-137, 1st Floor, Sunsquare Shopping
+            Plaza, Plot No. SPL-1/J, RIICO Chowk, Bhiwadi Ind. Area, Alwar, Bhiwadi, Tijara, Alwar
+            301019, Rajasthan, India.
+          </p>
+        </div>
+        <svg class="bigmark" data-static viewBox="0 0 1000 230" aria-hidden="true">
+          <text x="-8" y="205" font-size="270">Pack.</text>
+        </svg>
+      </footer>
+    </div>
+  </body>
+</html>

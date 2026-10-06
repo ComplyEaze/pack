@@ -20,6 +20,11 @@ const allowedActionPatterns = [
   /^actions\/setup-node@[\da-f]{40}$/i,
   /^pnpm\/action-setup@[\da-f]{40}$/i,
   /^github\/codeql-action\/[^@\s]+@[\da-f]{40}$/i,
+  // site-pages.yml publishes site/ to GitHub Pages. The repository's selected-actions policy must
+  // also allow actions/upload-artifact, which upload-pages-artifact calls internally.
+  /^actions\/upload-pages-artifact@[\da-f]{40}$/i,
+  /^actions\/configure-pages@[\da-f]{40}$/i,
+  /^actions\/deploy-pages@[\da-f]{40}$/i,
 ];
 
 describe("Pack CI workflow", () => {
