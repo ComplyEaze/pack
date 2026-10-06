@@ -1,0 +1,1162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>ComplyEaze Pack — your GST returns, saved from your own session</title>
+    <meta
+      name="description"
+      content="A Chrome extension that downloads your filed GSTR-3B and GSTR-1 returns and auto-drafted GSTR-2B statements from the GST Portal session you already signed into, one return period at a time. Open source under Apache 2.0."
+    />
+    <link rel="canonical" href="https://pack.complyeaze.com/" />
+    <meta name="theme-color" content="#f3f6f0" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ComplyEaze Pack" />
+    <meta property="og:url" content="https://pack.complyeaze.com/" />
+    <meta
+      property="og:title"
+      content="ComplyEaze Pack — your GST returns, saved from your own session"
+    />
+    <meta
+      property="og:description"
+      content="A Chrome extension that downloads your filed GSTR-3B and GSTR-1 returns and auto-drafted GSTR-2B statements from the GST Portal session you already signed into, one return period at a time. Open source under Apache 2.0."
+    />
+    <meta property="og:image" content="https://pack.complyeaze.com/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="assets/site.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "ComplyEaze Pack",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Chrome",
+        "url": "https://pack.complyeaze.com/",
+        "downloadUrl": "https://chromewebstore.google.com/detail/complyeaze-pack-gst-gstr/nfnbhekccajjfgkppolomflaeledoccb",
+        "license": "https://www.apache.org/licenses/LICENSE-2.0",
+        "codeRepository": "https://github.com/lamemustafa/pack",
+        "description": "A Chrome extension that downloads your filed GSTR-3B and GSTR-1 returns and auto-drafted GSTR-2B statements from the GST Portal session you already signed into, one return period at a time. Open source under Apache 2.0.",
+        "publisher": { "@type": "Organization", "name": "SPMS Comply Eaze Solutions LLP" }
+      }
+    </script>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-done" viewBox="0 0 22 22">
+          <circle cx="11" cy="11" r="9" fill="#1f7a4d" />
+          <path
+            d="M7 11.3l2.7 2.7L15 8.7"
+            fill="none"
+            stroke="#fff"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-retry" viewBox="0 0 22 22">
+          <circle cx="11" cy="11" r="8.3" fill="#fff6ea" stroke="#b7791f" stroke-width="1.4" />
+          <path
+            d="M14.6 9.2A4 4 0 1 0 15 12"
+            fill="none"
+            stroke="#b7791f"
+            stroke-width="1.6"
+            stroke-linecap="round"
+          />
+          <path
+            d="M15.4 6.6v3h-3"
+            fill="none"
+            stroke="#b7791f"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-blocked" viewBox="0 0 22 22">
+          <circle cx="11" cy="11" r="8.3" fill="none" stroke="#56635b" stroke-width="1.4" />
+          <path d="M6.8 11h8.4" stroke="#56635b" stroke-width="1.8" stroke-linecap="round" />
+        </symbol>
+        <symbol id="i-unsup" viewBox="0 0 22 22">
+          <circle
+            cx="11"
+            cy="11"
+            r="8.3"
+            fill="none"
+            stroke="#9aa59e"
+            stroke-width="1.4"
+            stroke-dasharray="2.2 2.2"
+          />
+        </symbol>
+        <symbol id="i-cancel" viewBox="0 0 22 22">
+          <circle cx="11" cy="11" r="8.3" fill="none" stroke="#13201a" stroke-width="1.4" />
+          <path d="M8 8l6 6M14 8l-6 6" stroke="#13201a" stroke-width="1.5" stroke-linecap="round" />
+        </symbol>
+        <symbol id="i-warn" viewBox="0 0 22 22">
+          <path
+            d="M11 3.2l8.4 14.6H2.6z"
+            fill="#fff6ea"
+            stroke="#b7791f"
+            stroke-width="1.4"
+            stroke-linejoin="round"
+          />
+          <path d="M11 9v4.2" stroke="#b7791f" stroke-width="1.6" stroke-linecap="round" />
+          <circle cx="11" cy="15.6" r="1" fill="#b7791f" />
+        </symbol>
+        <symbol id="i-fail" viewBox="0 0 22 22">
+          <circle cx="11" cy="11" r="9" fill="#9b4a2c" />
+          <path d="M8 8l6 6M14 8l-6 6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+        </symbol>
+        <symbol id="i-no" viewBox="0 0 22 22">
+          <circle cx="11" cy="11" r="8.3" fill="none" stroke="currentColor" stroke-width="1.4" />
+          <path d="M5.2 16.8L16.8 5.2" stroke="currentColor" stroke-width="1.4" />
+        </symbol>
+      </defs>
+    </svg>
+
+    <nav class="rail" id="rail" aria-label="Sections">
+      <ol>
+        <li><a href="#top">Overview</a></li>
+        <li><a href="#byhand">By hand</a></li>
+        <li><a href="#try">Try it</a></li>
+        <li><a href="#docs">Documents</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+      </ol>
+    </nav>
+
+    <div class="topbar" id="topbar">
+      <div class="wrap">
+        <nav aria-label="Main">
+          <a class="brand" href="#top" aria-label="ComplyEaze Pack">
+            <svg class="mk" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+              <rect width="64" height="64" rx="15" fill="#1d3b2a" />
+              <path
+                fill="#f3f6f0"
+                fill-rule="evenodd"
+                d="M19 13.5h19.5L47 22v7.5A10.5 10.5 0 0 1 36.5 40H28v10.5h-9z M28 24h8a3.75 3.75 0 0 1 0 7.5h-8z"
+              />
+              <path fill="#e8692c" d="M38.5 13.5L47 22h-5.5a3 3 0 0 1 -3 -3z" />
+            </svg>
+            <b>ComplyEaze <span>Pack</span></b>
+          </a>
+          <div class="links">
+            <a href="#byhand">By hand</a><a href="#try">Try it</a><a href="#docs">Documents</a
+            ><a href="#privacy">Privacy</a>
+          </div>
+          <a
+            class="gh"
+            href="https://github.com/lamemustafa/pack"
+            target="_blank"
+            rel="noopener"
+            aria-label="Star ComplyEaze Pack on GitHub"
+            ><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+              /></svg
+            ><span>Star</span><b class="stars" data-stars hidden></b
+          ></a>
+          <a
+            class="btn"
+            href="https://chromewebstore.google.com/detail/complyeaze-pack-gst-gstr/nfnbhekccajjfgkppolomflaeledoccb"
+            target="_blank"
+            rel="noopener"
+            >Add to Chrome <span class="arrow">→</span></a
+          >
+        </nav>
+      </div>
+    </div>
+    <div class="wrap">
+      <header class="hero" id="top">
+        <span class="eyebrow">Chrome extension for the GST Portal</span>
+        <h1 aria-label="Your GST returns, saved from your own session.">
+          <span class="m"><span class="w" style="animation-delay: 0.05s">Your</span></span>
+          <span class="m"><span class="w" style="animation-delay: 0.12s">GST</span></span>
+          <span class="m"><span class="w" style="animation-delay: 0.19s">returns,</span></span>
+          <span class="m"><span class="w" style="animation-delay: 0.26s">saved</span></span>
+          <span class="m"><span class="w" style="animation-delay: 0.33s">from</span></span>
+          <span class="m"><span class="w" style="animation-delay: 0.4s">your</span></span>
+          <span class="m"><span class="w" style="animation-delay: 0.47s">own</span></span>
+          <span class="m"><span class="w zip" style="animation-delay: 0.54s">session.</span></span>
+        </h1>
+        <p class="lede">
+          Pack downloads your filed GSTR-3B and GSTR-1 returns and your auto-drafted GSTR-2B
+          statements from the GST Portal session you already signed into. Pick the return and the
+          period; Pack finds the document on the portal page and saves it to your computer.
+        </p>
+        <div class="cta">
+          <a
+            class="btn"
+            href="https://chromewebstore.google.com/detail/complyeaze-pack-gst-gstr/nfnbhekccajjfgkppolomflaeledoccb"
+            target="_blank"
+            rel="noopener"
+            >Add to Chrome <span class="arrow">→</span></a
+          ><a class="btn ghost" href="#try">Try the sample <span class="arrow">↓</span></a
+          ><small>Open source · Apache 2.0 · pre-1.0 beta</small>
+        </div>
+      </header>
+    </div>
+
+    <div
+      class="route"
+      aria-label="Documents travel from your GST Portal session to a folder on your computer"
+    >
+      <svg viewBox="0 0 1440 380" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs>
+          <mask id="routemask">
+            <path
+              d="M 420 190 C 560 190, 610 90, 750 104 S 905 304, 1012 240 S 1082 200, 1112 200"
+              fill="none"
+              stroke="#fff"
+              stroke-width="10"
+              pathLength="1"
+              class="draw"
+              style="animation-delay: 1.05s; animation-duration: 1.2s"
+            />
+          </mask>
+        </defs>
+        <g transform="translate(86 62)">
+          <rect
+            class="ln f draw"
+            pathLength="1"
+            x="0"
+            y="0"
+            width="334"
+            height="250"
+            rx="14"
+            style="animation-delay: 0.35s"
+          />
+          <line
+            class="ln t draw"
+            pathLength="1"
+            x1="0"
+            y1="36"
+            x2="334"
+            y2="36"
+            style="animation-delay: 0.6s"
+          />
+          <circle class="ln t" cx="20" cy="18" r="5" />
+          <circle class="ln t" cx="38" cy="18" r="5" />
+          <circle class="ln t" cx="56" cy="18" r="5" />
+          <rect class="ln t" x="78" y="9" width="210" height="18" rx="9" />
+          <text x="92" y="22" class="dim">services.gst.gov.in</text>
+          <text x="24" y="78" class="big">GST Portal</text>
+          <text x="24" y="102" class="dim">signed in by you</text>
+          <line
+            class="ln t draw"
+            pathLength="1"
+            x1="24"
+            y1="134"
+            x2="304"
+            y2="134"
+            style="animation-delay: 0.75s"
+          />
+          <line
+            class="ln t draw"
+            pathLength="1"
+            x1="24"
+            y1="162"
+            x2="262"
+            y2="162"
+            style="animation-delay: 0.82s"
+          />
+          <line
+            class="ln t draw"
+            pathLength="1"
+            x1="24"
+            y1="190"
+            x2="292"
+            y2="190"
+            style="animation-delay: 0.89s"
+          />
+          <line
+            class="ln t draw"
+            pathLength="1"
+            x1="24"
+            y1="218"
+            x2="210"
+            y2="218"
+            style="animation-delay: 0.96s"
+          />
+        </g>
+        <path
+          id="route"
+          class="path"
+          mask="url(#routemask)"
+          d="M 420 190 C 560 190, 610 90, 750 104 S 905 304, 1012 240 S 1082 200, 1112 200"
+        />
+        <g transform="translate(1114 100)">
+          <path
+            class="ln f draw"
+            pathLength="1"
+            d="M0 28 a12 12 0 0 1 12 -12 h84 l20 20 h142 a12 12 0 0 1 12 12 v150 a12 12 0 0 1 -12 12 h-246 a12 12 0 0 1 -12 -12 z"
+            style="animation-delay: 0.55s"
+          />
+          <text x="24" y="80" class="big">Your computer</text>
+          <text x="24" y="106" class="dim">your download folder</text>
+          <text x="24" y="138" class="dim" id="lf0"></text>
+          <text x="24" y="158" class="dim" id="lf1"></text>
+          <text x="24" y="178" id="lf2">waiting for the first file</text>
+          <text x="24" y="200" class="dim" id="landed">0 documents</text>
+        </g>
+        <g class="doc" id="d0" opacity="0">
+          <rect x="-26" y="-33" width="52" height="66" rx="5" />
+          <path d="M-16 8h32M-16 15h32M-16 22h20" />
+          <text x="0" y="-6" text-anchor="middle">3B</text>
+        </g>
+        <g class="doc" id="d1" opacity="0">
+          <rect x="-26" y="-33" width="52" height="66" rx="5" />
+          <path d="M-16 8h32M-16 15h32M-16 22h20" />
+          <text x="0" y="-6" text-anchor="middle">1</text>
+        </g>
+        <g class="doc" id="d2" opacity="0">
+          <rect x="-26" y="-33" width="52" height="66" rx="5" />
+          <path d="M-16 8h32M-16 15h32M-16 22h20" />
+          <text x="0" y="-6" text-anchor="middle">2B</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="wrap">
+      <div class="route-cap">
+        <span>Runs inside the session you signed into</span><span>Opens only four GST hosts</span
+        ><span>One return period at a time</span>
+      </div>
+
+      <!-- BY HAND -->
+      <section class="sec" id="byhand">
+        <div class="intro">
+          <div>
+            <p class="kicker">By hand</p>
+            <h2>One period, one click at a time.</h2>
+          </div>
+          <p>
+            Roughly the path for one return and one period on the portal, then repeated for the
+            next. Scroll, and Pack takes it over.
+          </p>
+        </div>
+        <div class="hand" id="hand">
+          <div
+            class="hand-rows"
+            id="handrows"
+            aria-label="Manual portal steps for one period"
+          ></div>
+          <div class="hand-pack" id="handpack">
+            <span class="k2">With Pack</span><b>Pick GSTR-1, 2025-26, April. Pack does the rest.</b
+            ><span class="zn">ComplyEaze-Pack/2025-26/GSTR-1/April.zip</span
+            ><small
+              >The summary PDF and the e-invoice Excel together in one ZIP, where the portal
+              provides the Excel.</small
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- TRY IT -->
+      <section class="sec" id="try">
+        <div class="intro">
+          <div>
+            <p class="kicker">Try it</p>
+            <h2>Pick a return. Watch it land.</h2>
+          </div>
+          <p>
+            A sample in this page. Nothing is downloaded, and nothing is sent anywhere. The ZIP name
+            follows Pack's own naming rules.
+          </p>
+        </div>
+        <div class="console">
+          <div class="console-bar">
+            <span><i></i><i></i><i></i></span><span>Pack · sample run in this page</span
+            ><span>nothing is downloaded</span>
+          </div>
+          <div class="pane" id="pick">
+            <h3>1 · Pick <em id="sum">GSTR-3B · 2025-26 · April</em></h3>
+            <div class="fieldset">
+              <span>Return</span>
+              <div class="seg three" role="group" aria-label="Return">
+                <button type="button" data-ret="GSTR-3B" aria-pressed="true">GSTR-3B</button
+                ><button type="button" data-ret="GSTR-1" aria-pressed="false">GSTR-1</button
+                ><button type="button" data-ret="GSTR-2B" aria-pressed="false">GSTR-2B</button>
+              </div>
+            </div>
+            <div class="fieldset">
+              <span>Financial year</span>
+              <div class="seg three" role="group" aria-label="Financial year">
+                <button type="button" data-fy="2023-24" aria-pressed="false">2023-24</button
+                ><button type="button" data-fy="2024-25" aria-pressed="false">2024-25</button
+                ><button type="button" data-fy="2025-26" aria-pressed="true">2025-26</button>
+              </div>
+            </div>
+            <div class="fieldset">
+              <span>Period</span>
+              <div class="months" id="months" role="group" aria-label="Period"></div>
+            </div>
+            <label class="toggle" for="excel" id="excelrow"
+              ><span
+                >Add the e-invoice details Excel<small
+                  >GSTR-1 only, where the portal provides it</small
+                ></span
+              ><input type="checkbox" id="excel"
+            /></label>
+            <div class="runbar">
+              <button type="button" class="btn" id="run">
+                Run sample <span class="arrow">→</span>
+              </button>
+            </div>
+          </div>
+          <div class="pane" id="runpane">
+            <h3>2 · Run <em id="state" aria-live="polite">ready</em></h3>
+            <div class="meter"><i id="meter"></i></div>
+            <div class="counts" id="counts">
+              <span><b>0</b> of 0 steps</span>
+            </div>
+            <div class="list" id="list"></div>
+            <p class="note">
+              The steps follow what Pack says it does in its Chrome Web Store listing. Whether the
+              portal offers the Excel is a sample.
+            </p>
+          </div>
+          <div class="pane">
+            <h3>3 · Keep <em id="files">0 files</em></h3>
+            <div class="tree" id="tree"></div>
+            <p class="note" id="keepnote">Saved to your download folder.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- DOCUMENTS -->
+      <section class="sec" id="docs">
+        <div class="intro">
+          <div>
+            <p class="kicker">What it downloads</p>
+            <h2>Four documents, from the portal's own pages.</h2>
+          </div>
+          <p>
+            One return period at a time, for monthly filers. Quarterly (QRMP) filing is not
+            currently supported.
+          </p>
+        </div>
+        <div class="hgrid armed" id="hgrid">
+          <span class="corner c1"></span><span class="corner c2"></span
+          ><span class="corner c3"></span><span class="corner c4"></span>
+          <div>
+            <span class="num">01</span><span class="ret">GSTR-3B</span>
+            <p>The filed return.</p>
+            <code>PDF</code>
+          </div>
+          <div>
+            <span class="num">02</span><span class="ret">GSTR-1</span>
+            <p>The filed summary.</p>
+            <code>PDF</code>
+          </div>
+          <div>
+            <span class="num">03</span><span class="ret">GSTR-1</span>
+            <p>E-invoice details, where the portal provides the file.</p>
+            <code>Excel · .xls or .xlsx</code>
+          </div>
+          <div>
+            <span class="num">04</span><span class="ret">GSTR-2B</span>
+            <p>The auto-drafted statement summary.</p>
+            <code>PDF</code>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRIVACY + OUTCOMES -->
+      <section class="sec two" id="privacy">
+        <div>
+          <p class="kicker">What it never touches</p>
+          <h2>Your sign-in stays yours.</h2>
+          <ul class="ruled">
+            <li>
+              <svg width="22" height="22"><use href="#i-no" /></svg
+              ><span>password · OTP · CAPTCHA</span><span>never captured</span>
+            </li>
+            <li>
+              <svg width="22" height="22"><use href="#i-no" /></svg
+              ><span>cookies · session tokens</span><span>never captured</span>
+            </li>
+            <li>
+              <svg width="22" height="22"><use href="#i-no" /></svg><span>document upload</span
+              ><span>none in the download flow</span>
+            </li>
+            <li>
+              <svg width="22" height="22"><use href="#i-no" /></svg
+              ><span>analytics · telemetry</span><span>none</span>
+            </li>
+          </ul>
+          <pre class="manifest"><span class="c">// the only sites Pack is allowed to open</span>
+<span class="k">host permissions</span>: [
+  <span class="s">"https://www.gst.gov.in/*"</span>,
+  <span class="s">"https://services.gst.gov.in/*"</span>,
+  <span class="s">"https://return.gst.gov.in/*"</span>,
+  <span class="s">"https://gstr2b.gst.gov.in/*"</span>
+]</pre>
+        </div>
+        <div>
+          <p class="kicker">How a run ends</p>
+          <h2>Downloaded, or told why not.</h2>
+          <ul class="outs">
+            <li>
+              <svg width="22" height="22"><use href="#i-done" /></svg><b>Checked first</b
+              ><span
+                >A document counts as downloaded only after Pack verifies it is complete and
+                non-empty.</span
+              >
+            </li>
+            <li>
+              <svg width="22" height="22"><use href="#i-unsup" /></svg><b>Only what the page has</b
+              ><span
+                >A PDF or Excel workbook is saved only when the selected portal page provides
+                it.</span
+              >
+            </li>
+            <li>
+              <svg width="22" height="22"><use href="#i-retry" /></svg><b>Interrupted runs</b
+              ><span
+                >Pack keeps a local, redacted status so an interrupted run can be reviewed.</span
+              >
+            </li>
+            <li>
+              <svg width="22" height="22"><use href="#i-cancel" /></svg><b>Cleaned up</b
+              ><span
+                >Files staged in the browser are removed after a confirmed export, or when you
+                discard them.</span
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="oss">
+        <svg class="lines" viewBox="0 0 520 360" aria-hidden="true">
+          <g fill="none" stroke="#f3f6f0" stroke-width="1.2">
+            <path d="M0 300 C120 260 160 120 300 140 S 470 60 520 20" />
+            <path d="M0 320 C130 280 175 145 305 165 S 470 90 520 50" />
+            <path d="M0 340 C140 300 190 170 310 190 S 470 120 520 80" />
+            <path d="M0 360 C150 320 205 195 315 215 S 470 150 520 110" />
+          </g>
+        </svg>
+        <div>
+          <p class="kicker" style="color: #f6a77a">Open source · pre-1.0 beta</p>
+          <h2>Read every line before you install it.</h2>
+          <p style="margin-top: 16px">
+            Pack is Apache 2.0. The hosts it can open, how it names files and how it reports each
+            run are all in the repository.
+          </p>
+        </div>
+        <div class="btns">
+          <a class="btn" href="https://github.com/lamemustafa/pack" target="_blank" rel="noopener"
+            >Read the source <span class="arrow">→</span></a
+          ><a
+            class="btn ghost"
+            href="https://github.com/lamemustafa/pack"
+            target="_blank"
+            rel="noopener"
+            >★ Star on GitHub <b class="stars" data-stars hidden></b
+          ></a>
+        </div>
+      </section>
+
+      <footer>
+        <div class="trust">
+          <div>
+            <b>GST Portal</b><span>Pack works inside the session you signed into yourself.</span>
+          </div>
+          <div>
+            <b>Credentials</b
+            ><span>Never captures your password, OTP, CAPTCHA, cookies or session tokens.</span>
+          </div>
+          <div>
+            <b>Documents</b><span>Saved to your computer. No upload in the download flow.</span>
+          </div>
+          <div>
+            <b>Permissions</b><span>Four GST hosts, listed in the manifest. No analytics.</span>
+          </div>
+        </div>
+        <p class="sample-note">Every name, period and status shown on this site is sample data.</p>
+        <div class="fcols">
+          <div>
+            <a class="brand" href="#top" aria-label="ComplyEaze Pack">
+              <svg class="mk" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+                <rect width="64" height="64" rx="15" fill="#1d3b2a" />
+                <path
+                  fill="#f3f6f0"
+                  fill-rule="evenodd"
+                  d="M19 13.5h19.5L47 22v7.5A10.5 10.5 0 0 1 36.5 40H28v10.5h-9z M28 24h8a3.75 3.75 0 0 1 0 7.5h-8z"
+                />
+                <path fill="#e8692c" d="M38.5 13.5L47 22h-5.5a3 3 0 0 1 -3 -3z" />
+              </svg>
+              <b>ComplyEaze <span>Pack</span></b>
+            </a>
+            <p class="about">
+              A Chrome extension that saves your GST returns and statements from the GST Portal
+              session you already signed into.
+            </p>
+          </div>
+          <div>
+            <h4>Product</h4>
+            <a
+              href="https://chromewebstore.google.com/detail/complyeaze-pack-gst-gstr/nfnbhekccajjfgkppolomflaeledoccb"
+              target="_blank"
+              rel="noopener"
+              >Add to Chrome</a
+            ><a href="#try">Try the sample</a><a href="#docs">Documents</a>
+          </div>
+          <div>
+            <h4>Project</h4>
+            <a href="https://github.com/lamemustafa/pack" target="_blank" rel="noopener">GitHub</a
+            ><a href="support/">Support</a
+            ><a href="https://github.com/lamemustafa/pack/issues" target="_blank" rel="noopener"
+              >Report an issue</a
+            ><a
+              href="https://github.com/lamemustafa/pack/blob/HEAD/CHANGELOG.md"
+              target="_blank"
+              rel="noopener"
+              >Changelog</a
+            ><a
+              href="https://github.com/lamemustafa/pack/blob/HEAD/SECURITY.md"
+              target="_blank"
+              rel="noopener"
+              >Security policy</a
+            >
+          </div>
+          <div>
+            <h4>Legal</h4>
+            <a href="privacy/">Privacy Policy</a><a href="terms/">Terms of Service</a
+            ><a
+              href="https://github.com/lamemustafa/pack/blob/HEAD/LICENSE"
+              target="_blank"
+              rel="noopener"
+              >License</a
+            >
+          </div>
+        </div>
+        <div class="legal">
+          <p>ComplyEaze Pack is open source under the Apache License, Version 2.0. Pre-1.0 beta.</p>
+          <p>
+            ComplyEaze Pack is an independent third-party tool. It is not affiliated with, endorsed
+            by, or operated by GSTN, CBIC, or the Government of India.
+          </p>
+          <p>
+            Published by SPMS Comply Eaze Solutions LLP, a limited liability partnership registered
+            with limited liability under the Limited Liability Partnership Act, 2008, LLP
+            identification number ACI-9231. Registered office: S-137, 1st Floor, Sunsquare Shopping
+            Plaza, Plot No. SPL-1/J, RIICO Chowk, Bhiwadi Ind. Area, Alwar, Bhiwadi, Tijara, Alwar
+            301019, Rajasthan, India.
+          </p>
+        </div>
+        <svg class="bigmark" viewBox="0 0 1000 230" aria-hidden="true">
+          <text x="-8" y="205" font-size="270">Pack.</text>
+        </svg>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const MONTHS = [
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+          "January",
+          "February",
+          "March",
+        ];
+        const SHORT = [
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+          "Jan",
+          "Feb",
+          "Mar",
+        ];
+
+        // Pack's naming rules for a one-period ZIP (src/background/filed-returns-download-filename.ts), ported as-is
+        const seg = (v, lower = true) =>
+          (lower ? v.toLowerCase() : v)
+            .replace(/[^A-Za-z0-9._-]+/g, "-")
+            .replace(/^-+|-+$/g, "")
+            .slice(0, 80);
+        const entry = (ret, period, type) => {
+          const p = seg(period);
+          if (type === "EXCEL") return p + "-details.xlsx";
+          return ret === "GSTR-3B" ? p + "-return.pdf" : p + "-summary.pdf";
+        };
+        const DOCNAME = {
+          "GSTR-3B": "return PDF",
+          "GSTR-1": "summary PDF",
+          "GSTR-2B": "statement PDF",
+        };
+        // one period; a ZIP only when more than one document is selected (filed-returns-selected-artifacts.ts)
+        function plan(s) {
+          const period = MONTHS[s.month];
+          const docs = [
+            { type: "PDF", label: s.ret + " " + DOCNAME[s.ret], file: entry(s.ret, period, "PDF") },
+          ];
+          if (s.ret === "GSTR-1" && s.excel)
+            docs.push({
+              type: "EXCEL",
+              label: "GSTR-1 e-invoice details Excel",
+              file: entry(s.ret, period, "EXCEL"),
+            });
+          const zip =
+            docs.length > 1
+              ? ["ComplyEaze-Pack", seg(s.fy), seg(s.ret, false), seg(period, false) + ".zip"].join(
+                  "/",
+                )
+              : null;
+          return { period, docs, zip };
+        }
+        // a stable, illustrative answer for whether the portal page offers the Excel this period
+        const hash = (str) => {
+          let h = 2166136261;
+          for (let i = 0; i < str.length; i++) {
+            h ^= str.charCodeAt(i);
+            h = Math.imul(h, 16777619);
+          }
+          return h >>> 0;
+        };
+        const offered = (s, d) => d.type !== "EXCEL" || hash(s.fy + "|" + s.month) % 3 !== 0;
+
+        // ---------- hero route ----------
+        const routeSvg = document.querySelector(".route svg");
+        const cropRoute = () =>
+          routeSvg.setAttribute("viewBox", innerWidth < 700 ? "76 52 1316 290" : "0 0 1440 380");
+        cropRoute();
+        addEventListener("resize", cropRoute);
+        const path = document.getElementById("route"),
+          len = path.getTotalLength();
+        const docs = [0, 1, 2].map((i) => document.getElementById("d" + i)),
+          landed = document.getElementById("landed");
+        let landedN = 0;
+        function placeDoc(el, u) {
+          u = Math.max(0, Math.min(1, u));
+          const p = path.getPointAtLength(u * len);
+          const k = u > 0.9 ? 1 - (u - 0.9) / 0.1 : u < 0.06 ? u / 0.06 : 1;
+          el.setAttribute(
+            "transform",
+            "translate(" +
+              p.x.toFixed(1) +
+              " " +
+              p.y.toFixed(1) +
+              ") scale(" +
+              (0.72 + 0.28 * k).toFixed(3) +
+              ")",
+          );
+          el.setAttribute("opacity", k.toFixed(3));
+        }
+        if (reduce) {
+          docs.forEach((d, i) => placeDoc(d, 0.28 + i * 0.22));
+          landed.textContent = "3 documents";
+          document.getElementById("lf2").textContent = "GSTR-2B · March · statement PDF";
+        } else {
+          const t0 = performance.now() + 2100,
+            PERIOD = 6.6,
+            last = [0, 0, 0];
+          const recent = [],
+            lf = [0, 1, 2].map((i) => document.getElementById("lf" + i));
+          let routeOn = true;
+          if ("IntersectionObserver" in window)
+            new IntersectionObserver((es) => {
+              routeOn = es[0].isIntersecting;
+            }).observe(document.querySelector(".route"));
+          (function loop(now) {
+            if (!routeOn) {
+              requestAnimationFrame(loop);
+              return;
+            }
+            const t = (now - t0) / 1000;
+            path.style.strokeDashoffset = String((-Math.max(0, now - 1000) / 1000) * 22);
+            if (t > 0)
+              docs.forEach((d, i) => {
+                const u = (t / PERIOD + i * 0.2) % 1;
+                placeDoc(d, u);
+                if (u < last[i]) {
+                  const m = MONTHS[Math.floor(landedN / 3) % 12].toLowerCase();
+                  const M = MONTHS[Math.floor(landedN / 3) % 12];
+                  recent.push(
+                    [
+                      "GSTR-3B · " + M + " · return PDF",
+                      "GSTR-1 · " + M + " · summary PDF",
+                      "GSTR-2B · " + M + " · statement PDF",
+                    ][landedN % 3],
+                  );
+                  if (recent.length > 3) recent.shift();
+                  lf.forEach((el, j) => {
+                    const v = recent[recent.length - 3 + j];
+                    el.textContent = v ? (j === 2 ? "+ " : "  ") + v : "";
+                  });
+                  landedN++;
+                  landed.textContent = landedN + (landedN === 1 ? " document" : " documents");
+                }
+                last[i] = u;
+              });
+            requestAnimationFrame(loop);
+          })(performance.now());
+        }
+
+        // ---------- demo ----------
+        const state = { ret: "GSTR-3B", fy: "2025-26", month: 0, excel: false };
+        const monthsEl = document.getElementById("months");
+        SHORT.forEach((m, i) => {
+          const b = document.createElement("button");
+          b.type = "button";
+          b.textContent = m;
+          b.dataset.m = i;
+          b.setAttribute("aria-pressed", "false");
+          b.setAttribute("aria-label", MONTHS[i]);
+          monthsEl.appendChild(b);
+        });
+        const $ = (id) => document.getElementById(id);
+        const listEl = $("list"),
+          treeEl = $("tree"),
+          meter = $("meter"),
+          counts = $("counts"),
+          stEl = $("state");
+        let runId = 0;
+        const zipIcon =
+          '<svg width="16" height="18" viewBox="0 0 16 18" aria-hidden="true"><rect x="1" y="1" width="14" height="16" rx="3" fill="#e3eee4" stroke="#1d3b2a" stroke-width="1.2"/><path d="M8 1v2M8 5v2M8 9v2" stroke="#1d3b2a" stroke-width="1.6"/><rect x="6" y="11" width="4" height="3.4" rx="1" fill="#1d3b2a"/></svg>';
+        const docIcon =
+          '<svg width="14" height="18" viewBox="0 0 14 18" aria-hidden="true"><path d="M2 1h7l4 4v11a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1z" fill="#fff" stroke="#1d3b2a" stroke-width="1.2"/><path d="M9 1v4h4" fill="none" stroke="#1d3b2a" stroke-width="1.2"/></svg>';
+        function steps(p) {
+          const out = [
+            {
+              t: "Find " + state.ret + " for " + p.period + " " + state.fy + " on the portal page",
+            },
+          ];
+          p.docs.forEach((d, i) => {
+            if (offered(state, d)) {
+              out.push({ t: "Save the " + d.label, doc: i });
+              out.push({ t: "Check it is complete and non-empty", doc: i, ok: true });
+            } else
+              out.push({
+                t: "The page does not provide the " + d.label + " for this period",
+                doc: i,
+                miss: true,
+              });
+          });
+          if (p.zip) {
+            out.push({ t: "Put the documents in one ZIP" });
+            out.push({ t: "Clear the browser's temporary copies after the export" });
+          } else out.push({ t: "Save it to your download folder" });
+          return out;
+        }
+        function sync() {
+          document
+            .querySelectorAll("[data-ret]")
+            .forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.ret === state.ret)));
+          document
+            .querySelectorAll("[data-fy]")
+            .forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.fy === state.fy)));
+          [...monthsEl.children].forEach((b, i) =>
+            b.setAttribute("aria-pressed", String(i === state.month)),
+          );
+          const ex = $("excel"),
+            exOk = state.ret === "GSTR-1";
+          ex.disabled = !exOk;
+          $("excelrow").classList.toggle("disabled", !exOk);
+          if (!exOk) ex.checked = false;
+          state.excel = ex.checked;
+          $("sum").textContent = state.ret + " · " + state.fy + " · " + MONTHS[state.month];
+          render();
+        }
+        function render() {
+          runId++;
+          $("run").disabled = false;
+          const p = plan(state),
+            st = steps(p),
+            n = st.length;
+          listEl.innerHTML = st
+            .map(
+              (x, i) =>
+                '<div class="row plan" data-i="' +
+                i +
+                '"><span class="ic"></span><span class="nm">' +
+                x.t +
+                '</span><span class="st">queued</span></div>',
+            )
+            .join("");
+          if (p.zip) {
+            treeEl.innerHTML =
+              '<div class="zipline">' +
+              zipIcon +
+              "<span>" +
+              p.zip +
+              "</span></div>" +
+              p.docs
+                .map(
+                  (d, i) =>
+                    '<div class="f' +
+                    (i === p.docs.length - 1 ? " last" : "") +
+                    '" data-d="' +
+                    i +
+                    '">' +
+                    d.file +
+                    "</div>",
+                )
+                .join("");
+            $("keepnote").textContent =
+              "More than one document, so Pack puts them in one ZIP in your download folder.";
+          } else {
+            treeEl.innerHTML =
+              '<div class="zipline">' +
+              docIcon +
+              "<span>" +
+              p.docs[0].label +
+              " · " +
+              p.period +
+              " " +
+              state.fy +
+              "</span></div>";
+            $("keepnote").textContent = "One document, saved on its own to your download folder.";
+          }
+          $("files").textContent =
+            p.docs.length + (p.docs.length === 1 ? " document" : " documents");
+          meter.style.width = "0%";
+          counts.innerHTML = "<span><b>0</b> of " + n + " steps</span>";
+          stEl.textContent = "ready";
+          return { p, st };
+        }
+        function run() {
+          const { p, st } = render(),
+            id = runId,
+            n = st.length;
+          $("run").disabled = true;
+          stEl.textContent = "running";
+          const rows = [...listEl.children];
+          const step = reduce ? 0 : 520;
+          let k = 0,
+            missing = 0;
+          st.forEach((x, i) => {
+            const go = () => {
+              if (id !== runId) return;
+              const r = rows[i];
+              r.classList.remove("plan");
+              r.classList.add("go", "enter");
+              r.querySelector(".st").textContent = "working";
+              const done = () => {
+                if (id !== runId) return;
+                r.classList.remove("go");
+                r.classList.add(x.miss ? "nf" : "done");
+                r.querySelector(".st").textContent = x.miss ? "not provided" : "done";
+                if (x.doc !== undefined) {
+                  const f = treeEl.querySelector('[data-d="' + x.doc + '"]');
+                  if (f) f.classList.add(x.miss ? "out" : "in");
+                }
+                if (x.miss) missing++;
+                k++;
+                meter.style.width = (k / n) * 100 + "%";
+                counts.innerHTML = "<span><b>" + k + "</b> of " + n + " steps</span>";
+                if (k === n) {
+                  $("run").disabled = false;
+                  stEl.textContent = missing ? "saved · the Excel was not provided" : "saved";
+                  const z = treeEl.querySelector(".zipline");
+                  if (z) z.classList.add("sealed");
+                }
+              };
+              if (reduce) done();
+              else setTimeout(done, step * 0.8);
+            };
+            if (reduce) go();
+            else setTimeout(go, i * step);
+          });
+        }
+        document.querySelectorAll("[data-ret]").forEach((b) =>
+          b.addEventListener("click", () => {
+            state.ret = b.dataset.ret;
+            sync();
+          }),
+        );
+        document.querySelectorAll("[data-fy]").forEach((b) =>
+          b.addEventListener("click", () => {
+            state.fy = b.dataset.fy;
+            sync();
+          }),
+        );
+        monthsEl.addEventListener("click", (e) => {
+          const b = e.target.closest("button");
+          if (!b) return;
+          state.month = +b.dataset.m;
+          sync();
+        });
+        $("excel").addEventListener("change", (e) => {
+          state.excel = e.target.checked;
+          sync();
+        });
+        $("run").addEventListener("click", run);
+        sync();
+
+        // ---------- by hand ----------
+        const hr = $("handrows"),
+          hp = $("handpack"),
+          handEl = $("hand");
+        const STEPS = [
+          ["Open", "Returns Dashboard"],
+          ["Choose", "Financial year 2025-26"],
+          ["Choose", "Period: April"],
+          ["Click", "Search"],
+          ["Open", "GSTR-1 · View"],
+          ["Download", "Summary PDF"],
+          ["Download", "E-invoice details Excel"],
+          ["Rename", "Both files, the same way as last month"],
+        ];
+        const hrows = STEPS.map(([verb, what], i) => {
+          const row = document.createElement("div");
+          row.className = "hrow";
+          row.innerHTML =
+            "<span>" +
+            String(i + 1).padStart(2, "0") +
+            " · " +
+            verb +
+            "</span><div class='hchips'><i>" +
+            what +
+            "</i></div>";
+          hr.appendChild(row);
+          return row;
+        });
+        function handProgress() {
+          const b = handEl.getBoundingClientRect(),
+            vh = innerHeight;
+          const p = reduce
+            ? 1
+            : Math.max(0, Math.min(1, (vh * 0.78 - b.top) / (b.height + vh * 0.25)));
+          const k = Math.floor(p * (STEPS.length + 2.5));
+          hrows.forEach((r, i) => r.classList.toggle("x", i < k));
+          hp.classList.toggle("on", k >= STEPS.length);
+        }
+        addEventListener("scroll", handProgress, { passive: true });
+        handProgress();
+
+        // ---------- heading rise ----------
+        if (!reduce && "IntersectionObserver" in window) {
+          const hio = new IntersectionObserver(
+            (es) =>
+              es.forEach((e) => {
+                if (e.isIntersecting) {
+                  e.target.classList.add("in");
+                  hio.unobserve(e.target);
+                }
+              }),
+            { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
+          );
+          document.querySelectorAll(".sec h2, .oss h2").forEach((h) => {
+            const words = h.textContent.trim().split(/\s+/);
+            h.setAttribute("aria-label", h.textContent.trim());
+            // rebuilt with DOM calls, never by re-parsing text as HTML
+            h.textContent = "";
+            words.forEach((w, i) => {
+              const outer = document.createElement("span"),
+                inner = document.createElement("span");
+              outer.className = "hw";
+              outer.setAttribute("aria-hidden", "true");
+              inner.style.transitionDelay = (i * 0.055).toFixed(3) + "s";
+              inner.textContent = w;
+              outer.appendChild(inner);
+              h.appendChild(outer);
+              if (i < words.length - 1) h.appendChild(document.createTextNode(" "));
+            });
+            h.classList.add("armed");
+            hio.observe(h);
+          });
+        }
+
+        // ---------- cursor light ----------
+        document.querySelectorAll(".hgrid > div, .pane, .strip, .hand-pack").forEach((el) => {
+          el.classList.add("spot");
+          el.addEventListener("pointermove", (e) => {
+            const b = el.getBoundingClientRect();
+            el.style.setProperty("--mx", e.clientX - b.left + "px");
+            el.style.setProperty("--my", e.clientY - b.top + "px");
+          });
+          el.addEventListener("pointerleave", () => {
+            el.style.setProperty("--mx", "-999px");
+            el.style.setProperty("--my", "-999px");
+          });
+        });
+
+        // ---------- section rail ----------
+        const rail = $("rail"),
+          railLinks = [...rail.querySelectorAll("a")],
+          railSecs = railLinks.map((a) => document.querySelector(a.getAttribute("href")));
+        function railUpdate() {
+          const y = innerHeight * 0.4;
+          let cur = 0;
+          railSecs.forEach((s, i) => {
+            if (s && s.getBoundingClientRect().top < y) cur = i;
+          });
+          railLinks.forEach((a, i) => {
+            a.classList.toggle("on", i === cur);
+            a.classList.toggle("past", i < cur);
+          });
+          const s = railSecs[cur],
+            nx = railSecs[cur + 1];
+          let f = 0;
+          if (s && nx) {
+            const a = s.getBoundingClientRect().top,
+              b = nx.getBoundingClientRect().top;
+            f = Math.max(0, Math.min(1, (y - a) / Math.max(1, b - a)));
+          }
+          rail.style.setProperty("--rp", ((cur + f) / (railLinks.length - 1)).toFixed(4));
+        }
+        addEventListener("scroll", railUpdate, { passive: true });
+        railUpdate();
+
+        // ---------- wordmark ----------
+        const bm = document.querySelector(".bigmark");
+        if (!reduce && "IntersectionObserver" in window) {
+          bm.classList.add("armed");
+          const bio = new IntersectionObserver(
+            (es) => {
+              if (es[0].isIntersecting) {
+                bm.classList.add("in");
+                bio.disconnect();
+              }
+            },
+            { threshold: 0.3 },
+          );
+          bio.observe(bm);
+        }
+
+        // ---------- top bar ----------
+        const tb = $("topbar"),
+          tbS = () => tb.classList.toggle("scrolled", scrollY > 8);
+        addEventListener("scroll", tbS, { passive: true });
+        tbS();
+
+        // ---------- document grid reveal ----------
+        const hg = $("hgrid");
+        if (reduce || !("IntersectionObserver" in window)) hg.classList.add("seen");
+        else {
+          const io = new IntersectionObserver(
+            (es) => {
+              if (es.some((e) => e.isIntersecting)) {
+                hg.classList.add("seen");
+                io.disconnect();
+              }
+            },
+            { threshold: 0.35 },
+          );
+          io.observe(hg);
+        }
+      })();
+    </script>
+  </body>
+</html>

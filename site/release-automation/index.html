@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>ComplyEaze Pack Release Automation</title>
+    <meta
+      name="description"
+      content="ComplyEaze Pack Release Automation is the Google OAuth app used by ComplyEaze maintainers to authenticate the protected Chrome Web Store release workflow for ComplyEaze Pack."
+    />
+    <link rel="canonical" href="https://pack.complyeaze.com/release-automation" />
+    <meta name="theme-color" content="#f3f6f0" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ComplyEaze Pack" />
+    <meta property="og:url" content="https://pack.complyeaze.com/release-automation" />
+    <meta property="og:title" content="ComplyEaze Pack Release Automation" />
+    <meta
+      property="og:description"
+      content="ComplyEaze Pack Release Automation is the Google OAuth app used by ComplyEaze maintainers to authenticate the protected Chrome Web Store release workflow for ComplyEaze Pack."
+    />
+    <meta property="og:image" content="https://pack.complyeaze.com/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="../fonts/fonts.css" />
+    <link rel="stylesheet" href="../assets/site.css" />
+    <meta name="application-name" content="ComplyEaze Pack Release Automation" />
+    <meta name="google-oauth-app-name" content="ComplyEaze Pack Release Automation" />
+    <meta
+      name="google-oauth-app-purpose"
+      content="Chrome Web Store API release submission for the protected ComplyEaze Pack release workflow."
+    />
+    <link rel="stylesheet" href="../assets/doc.css" />
+  </head>
+  <body>
+    <div class="topbar scrolled" id="topbar">
+      <div class="wrap">
+        <nav aria-label="Main">
+          <a class="brand" href="../" aria-label="ComplyEaze Pack home"
+            ><svg class="mk" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+              <rect width="64" height="64" rx="15" fill="#1d3b2a" />
+              <path
+                fill="#f3f6f0"
+                fill-rule="evenodd"
+                d="M19 13.5h19.5L47 22v7.5A10.5 10.5 0 0 1 36.5 40H28v10.5h-9z M28 24h8a3.75 3.75 0 0 1 0 7.5h-8z"
+              />
+              <path fill="#e8692c" d="M38.5 13.5L47 22h-5.5a3 3 0 0 1 -3 -3z" /></svg
+            ><b>ComplyEaze <span>Pack</span></b></a
+          >
+          <div class="links">
+            <a href="../#try">Try it</a><a href="../docs/">Docs</a><a href="../support/">Support</a
+            ><a href="../privacy/">Privacy</a>
+          </div>
+          <a
+            class="btn"
+            href="https://chromewebstore.google.com/detail/complyeaze-pack-gst-gstr/nfnbhekccajjfgkppolomflaeledoccb"
+            target="_blank"
+            rel="noopener"
+            >Add to Chrome <span class="arrow">→</span></a
+          >
+        </nav>
+      </div>
+    </div>
+    <div class="wrap">
+      <main class="doc" id="main-content">
+        <div>
+          <p class="pill">OAuth app purpose</p>
+          <h1>ComplyEaze Pack Release Automation</h1>
+          <div>
+            ComplyEaze Pack Release Automation is the Google OAuth app used by ComplyEaze
+            maintainers to authenticate the protected Chrome Web Store release workflow for
+            ComplyEaze Pack. It is not the Pack browser extension runtime and is not used to access
+            GST Portal accounts.
+          </div>
+        </div>
+        <div>
+          <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "ComplyEaze Pack Release Automation",
+              "url": "https://pack.complyeaze.com/release-automation",
+              "applicationCategory": "DeveloperApplication",
+              "description": "ComplyEaze Pack Release Automation is the Google OAuth app used by ComplyEaze maintainers to authenticate the protected Chrome Web Store release workflow for ComplyEaze Pack.",
+              "provider": {
+                "@type": "Organization",
+                "name": "ComplyEaze",
+                "url": "https://complyeaze.com"
+              },
+              "audience": { "@type": "Audience", "audienceType": "ComplyEaze release maintainers" },
+              "featureList": [
+                "Authenticates Chrome Web Store API release submissions.",
+                "Uses source-controlled extension ZIPs, release tags, and release evidence recorded when available.",
+                "Does not access GST Portal accounts or Pack extension runtime data."
+              ]
+            }
+          </script>
+          <div>
+            <section>
+              <div><h2>What this app does</h2></div>
+              <div>
+                <div class="g">
+                  <article class="card">
+                    <h3>Release submission</h3>
+                    <div>
+                      Authenticates the Chrome Web Store API call that uploads or publishes a
+                      ComplyEaze Pack release package.
+                    </div>
+                  </article>
+                  <article class="card">
+                    <h3>Maintainer-only use</h3>
+                    <div>
+                      Used by ComplyEaze maintainers and the protected GitHub Actions environment
+                      for the Pack publisher account.
+                    </div>
+                  </article>
+                  <article class="card">
+                    <h3>Release artifacts</h3>
+                    <div>
+                      Submits release ZIPs from the source-controlled release workflow and records
+                      release evidence when available.
+                    </div>
+                  </article>
+                  <article class="card">
+                    <h3>No GST Portal access</h3>
+                    <div>
+                      Does not sign in to GST Portal, read taxpayer records, download GST files, or
+                      run inside the Pack extension.
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </section>
+            <section>
+              <div>
+                <h2>OAuth scope</h2>
+                <div>
+                  The Google OAuth consent flow authorises the Chrome Web Store API scope needed to
+                  manage Pack releases in the publisher account.
+                </div>
+              </div>
+              <div>
+                <dl>
+                  <div class="card">
+                    <dt>OAuth app name</dt>
+                    <dd>ComplyEaze Pack Release Automation</dd>
+                  </div>
+                  <div class="card">
+                    <dt>Google API</dt>
+                    <dd>Chrome Web Store API</dd>
+                  </div>
+                  <div class="card">
+                    <dt>Requested scope</dt>
+                    <dd>https://www.googleapis.com/auth/chromewebstore</dd>
+                  </div>
+                  <div class="card">
+                    <dt>Release support contact</dt>
+                    <dd>extensions@complyeaze.com</dd>
+                  </div>
+                </dl>
+              </div>
+            </section>
+            <section>
+              <div>
+                <h2>Data boundary</h2>
+                <div>
+                  Release automation is separate from the local-first browser extension workflow.
+                </div>
+              </div>
+              <div>
+                <ul>
+                  <li>
+                    <span
+                      >It does not request, collect, store, or transmit GST Portal credentials,
+                      OTPs, CAPTCHA responses, cookies, or session tokens.</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      >It does not read GST Portal pages, taxpayer identifiers, GST files, portal
+                      HTML, browser download paths, or local extension storage.</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      >It does not add extension analytics, advertising, session replay, or runtime
+                      telemetry.</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      >Its release inputs are source-controlled release artifacts: extension ZIP,
+                      release tag, publisher configuration, and any checksum or provenance evidence
+                      recorded for that release.</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </section>
+            <section>
+              <div>
+                <h2>Release controls</h2>
+                <div>
+                  The release workflow is intentionally narrower than normal extension runtime
+                  behavior.
+                </div>
+              </div>
+              <div>
+                <div class="g">
+                  <article class="card">
+                    <h3>Protected workflow</h3>
+                    <p>
+                      Chrome Web Store submissions run from a restricted GitHub environment with
+                      publisher credentials stored as GitHub secrets.
+                    </p>
+                  </article>
+                  <article class="card">
+                    <h3>Package evidence</h3>
+                    <p>
+                      Release records link the extension package to the source tag and include
+                      checksum or provenance evidence when available.
+                    </p>
+                  </article>
+                  <article class="card">
+                    <h3>Limited credential use</h3>
+                    <p>
+                      OAuth credentials are used only to obtain an access token for the Chrome Web
+                      Store API release request.
+                    </p>
+                  </article>
+                </div>
+              </div>
+            </section>
+            <section>
+              <div>
+                <h2>Related public documents</h2>
+                <div>
+                  These pages describe the product, privacy boundary, release status, and source
+                  evidence for Pack.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <a href="../source/">Review source evidence</a
+                  ><a href="../privacy/">Read privacy notice</a><a href="../terms/">Read terms</a
+                  ><a href="../status/">View release status</a>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <div class="trust">
+          <div>
+            <b>GST Portal</b><span>Pack works inside the session you signed into yourself.</span>
+          </div>
+          <div>
+            <b>Credentials</b
+            ><span>Never captures your password, OTP, CAPTCHA, cookies or session tokens.</span>
+          </div>
+          <div>
+            <b>Documents</b><span>Saved to your computer. No upload in the download flow.</span>
+          </div>
+          <div>
+            <b>Permissions</b><span>Four GST hosts, listed in the manifest. No analytics.</span>
+          </div>
+        </div>
+        <p class="sample-note">Every name, period and status shown on this site is sample data.</p>
+        <div class="fcols">
+          <div>
+            <a class="brand" href="../" aria-label="ComplyEaze Pack">
+              <svg class="mk" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+                <rect width="64" height="64" rx="15" fill="#1d3b2a" />
+                <path
+                  fill="#f3f6f0"
+                  fill-rule="evenodd"
+                  d="M19 13.5h19.5L47 22v7.5A10.5 10.5 0 0 1 36.5 40H28v10.5h-9z M28 24h8a3.75 3.75 0 0 1 0 7.5h-8z"
+                />
+                <path fill="#e8692c" d="M38.5 13.5L47 22h-5.5a3 3 0 0 1 -3 -3z" />
+              </svg>
+              <b>ComplyEaze <span>Pack</span></b>
+            </a>
+            <p class="about">
+              A Chrome extension that saves your GST returns and statements from the GST Portal
+              session you already signed into.
+            </p>
+          </div>
+          <div>
+            <h4>Product</h4>
+            <a
+              href="https://chromewebstore.google.com/detail/complyeaze-pack-gst-gstr/nfnbhekccajjfgkppolomflaeledoccb"
+              target="_blank"
+              rel="noopener"
+              >Add to Chrome</a
+            ><a href="../#try">Try the sample</a><a href="../#docs">Documents</a>
+          </div>
+          <div>
+            <h4>Project</h4>
+            <a href="https://github.com/lamemustafa/pack" target="_blank" rel="noopener">GitHub</a
+            ><a href="../support/">Support</a
+            ><a href="https://github.com/lamemustafa/pack/issues" target="_blank" rel="noopener"
+              >Report an issue</a
+            ><a
+              href="https://github.com/lamemustafa/pack/blob/HEAD/CHANGELOG.md"
+              target="_blank"
+              rel="noopener"
+              >Changelog</a
+            ><a
+              href="https://github.com/lamemustafa/pack/blob/HEAD/SECURITY.md"
+              target="_blank"
+              rel="noopener"
+              >Security policy</a
+            >
+          </div>
+          <div>
+            <h4>Legal</h4>
+            <a href="../privacy/">Privacy Policy</a><a href="../terms/">Terms of Service</a
+            ><a
+              href="https://github.com/lamemustafa/pack/blob/HEAD/LICENSE"
+              target="_blank"
+              rel="noopener"
+              >License</a
+            >
+          </div>
+        </div>
+        <div class="legal">
+          <p>ComplyEaze Pack is open source under the Apache License, Version 2.0. Pre-1.0 beta.</p>
+          <p>
+            ComplyEaze Pack is an independent third-party tool. It is not affiliated with, endorsed
+            by, or operated by GSTN, CBIC, or the Government of India.
+          </p>
+          <p>
+            Published by SPMS Comply Eaze Solutions LLP, a limited liability partnership registered
+            with limited liability under the Limited Liability Partnership Act, 2008, LLP
+            identification number ACI-9231. Registered office: S-137, 1st Floor, Sunsquare Shopping
+            Plaza, Plot No. SPL-1/J, RIICO Chowk, Bhiwadi Ind. Area, Alwar, Bhiwadi, Tijara, Alwar
+            301019, Rajasthan, India.
+          </p>
+        </div>
+        <svg class="bigmark" data-static viewBox="0 0 1000 230" aria-hidden="true">
+          <text x="-8" y="205" font-size="270">Pack.</text>
+        </svg>
+      </footer>
+    </div>
+  </body>
+</html>

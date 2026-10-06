@@ -1,0 +1,92 @@
+name: Site deploy
+
+# Publishes site/ to GitHub Pages for pack.complyeaze.com. Off until the repository variable
+# ENABLE_SITE_PAGES_DEPLOY is "true": the repository must first be owned by the organization that
+# verified complyeaze.com, and the Pages custom domain set to pack.complyeaze.com.
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "site/**"
+      - ".github/workflows/site-pages.yml"
+  push:
+    branches:
+      - master
+    paths:
+      - "site/**"
+      - ".github/workflows/site-pages.yml"
+  schedule:
+    # refreshes the baked-in GitHub star count once a day
+    - cron: "17 3 * * *"
+
+# The workflow holds read access only. The Pages and identity-token permissions are granted to the
+# deploy job alone, which runs the Pages actions and nothing else.
+permissions:
+  contents: read
+
+concurrency:
+  # one queue per ref, so a pull request never displaces a queued deploy from master
+  group: site-pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Assemble the site
+    # pull requests assemble and verify the site; only master, with the switch on, publishes it
+    if: ${{ github.event_name == 'pull_request' || (github.ref == 'refs/heads/master' && vars.ENABLE_SITE_PAGES_DEPLOY == 'true') }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+
+      - name: Assemble site, fonts and star count
+        env:
+          GH_REPO: ${{ github.repository }}
+        run: bash site/build.sh _site
+
+      - name: Verify the assembled site
+        run: |
+          test -s _site/fonts/fonts.css
+          if grep -q 'http' _site/fonts/fonts.css; then
+            echo "fonts.css still points at another host" >&2
+            exit 1
+          fi
+          ls _site/fonts/*.woff2 > /dev/null
+          ls _site/fonts/OFL-funneldisplay.txt _site/fonts/OFL-funnelsans.txt _site/fonts/OFL-geistmono.txt
+          if grep -rlE 'fonts\.(googleapis|gstatic)\.com|api\.github\.com' _site --include='*.html' --include='*.css'; then
+            echo "a page still makes a third-party request" >&2
+            exit 1
+          fi
+          for page in index.html 404.html gst.html support.html privacy.html terms.html release-automation.html; do
+            test -s "_site/$page"
+          done
+
+      - name: Upload Pages artifact
+        if: ${{ github.event_name != 'pull_request' }}
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9
+        with:
+          path: _site
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    if: ${{ github.ref == 'refs/heads/master' && vars.ENABLE_SITE_PAGES_DEPLOY == 'true' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d
+
+      - name: Deploy Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128
