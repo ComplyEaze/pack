@@ -16,7 +16,7 @@ deploy time.
   `/support`, `/privacy` and `/terms`; the Google OAuth consent screen uses
   `/release-automation`, `/privacy` and `/terms`. `build.sh` also writes each page as `name.html`,
   so Pages serves the address without a trailing slash directly. Do not move these paths.
-- The privacy notice and docs were updated on 7 October 2026 for this site and the v0.5.0 Store
+- The privacy notice and docs were updated on 7 October 2026 for this site and the Store
   build; the storage list now links to the README's Extension Storage section, which is the
   maintained inventory. The terms keep their "alpha" wording until the owner revises them.
 - `gst/`, `changelog/`, `source/`, `status/` — redirects for retired addresses.

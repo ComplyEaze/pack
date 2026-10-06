@@ -4,13 +4,13 @@
   "private": true,
   "description": "ComplyEaze Pack: local-first downloader for your filed GSTR-1 and GSTR-3B returns and your GSTR-2B statements.",
   "type": "module",
-  "homepage": "https://github.com/lamemustafa/pack#readme",
+  "homepage": "https://github.com/ComplyEaze/pack#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lamemustafa/pack.git"
+    "url": "https://github.com/ComplyEaze/pack.git"
   },
   "bugs": {
-    "url": "https://github.com/lamemustafa/pack/issues"
+    "url": "https://github.com/ComplyEaze/pack/issues"
   },
   "author": "ComplyEaze <contact@complyeaze.com>",
   "license": "Apache-2.0",
