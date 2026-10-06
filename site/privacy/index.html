@@ -61,7 +61,7 @@
     <div class="wrap">
       <main class="doc" id="main-content">
         <div>
-          <p class="pill">Last updated 4 July 2026</p>
+          <p class="pill">Last updated 7 October 2026</p>
           <h1>Pack privacy notice</h1>
           <div>
             This notice explains what Pack handles in the browser extension, on this website, and
@@ -93,17 +93,17 @@
                           </li>
                           <li>
                             <span
-                              >Local storage may contain pack:install with local extension version,
-                              install timestamp, and local-only metadata, plus
-                              pack:active-filed-returns-run, pack:full-fiscal-year-ledger,
-                              pack:filed-returns-target-review, and pack:last-manifest.</span
-                            >
-                          </li>
-                          <li>
-                            <span
-                              >Session storage may contain pack:last-context,
-                              pack:last-filed-returns-observation, and
-                              pack:last-filed-returns-flow-summary.</span
+                              >Extension local and session storage hold install metadata; run, plan,
+                              recovery and review state for downloads you start; the latest safe GST
+                              page context and tab ID; and the local demo manifest. The
+                              <a href="https://github.com/ComplyEaze/pack#extension-storage"
+                                >Extension Storage section of the Pack README</a
+                              >
+                              lists each key in the current source. Selected document bytes may be
+                              staged temporarily in browser-local storage (OPFS) during capture or
+                              ZIP assembly; Pack removes them after a confirmed export or an
+                              explicit discard, and keeps them with a cleanup-pending status if that
+                              cleanup fails.</span
                             >
                           </li>
                           <li>
@@ -130,12 +130,13 @@
                           <li><span>https://www.gst.gov.in/*</span></li>
                           <li><span>https://services.gst.gov.in/*</span></li>
                           <li><span>https://return.gst.gov.in/*</span></li>
+                          <li><span>https://gstr2b.gst.gov.in/*</span></li>
                         </ul>
                       </div>
                     </div>
                   </article>
                   <article class="card">
-                    <h3>Pack website diagnostics</h3>
+                    <h3>Pack website</h3>
                     <div>
                       <div>
                         <p>
@@ -148,16 +149,13 @@
                           <li><span>Website page analytics are disabled.</span></li>
                           <li>
                             <span
-                              >Pack pages use Sentry error diagnostics in the Pack telemetry profile
-                              with replay, tracing, logs, request bodies, cookies, and default PII
-                              disabled; full query strings are stripped from request URLs before
-                              Pack website diagnostics leave the app.</span
+                              >Pack's own pages load no analytics, error-reporting, advertising or
+                              session-replay scripts, and set no cookies of their own. Fonts and
+                              images are served from this site.</span
                             >
                           </li>
                           <li>
-                            <span
-                              >Pack pages do not initialize or use the ComplyEaze app session.</span
-                            >
+                            <span>Pack pages do not use a ComplyEaze account or app session.</span>
                           </li>
                         </ul>
                       </div>
@@ -205,8 +203,8 @@
                 <h2>Pack browser extension</h2>
                 <div>
                   The extension processes supported GST Portal page state locally in your browser to
-                  find and trigger filed GSTR‑3B PDF, filed GSTR‑1 summary PDF, and optional GSTR‑1
-                  e-invoice details Excel downloads.
+                  find and trigger filed GSTR‑3B PDF, filed GSTR‑1 summary PDF, optional GSTR‑1
+                  e-invoice details Excel, and auto-drafted GSTR‑2B statement summary PDF downloads.
                 </div>
               </div>
               <div>
@@ -228,9 +226,10 @@
                   <div class="card">
                     <dt>Selected financial year and period</dt>
                     <dd>
-                      Processed locally to identify requested filed GSTR‑3B and GSTR‑1 downloads;
-                      local run, full-year ledger, and unresolved target-review state may remain in
-                      extension local storage until cleared or the extension is removed.
+                      Processed locally to identify requested filed GSTR‑3B and GSTR‑1 and
+                      auto-drafted GSTR‑2B downloads; local run, full-year ledger, and unresolved
+                      target-review state may remain in extension local storage until cleared or the
+                      extension is removed.
                     </dd>
                   </div>
                   <div class="card">
@@ -288,6 +287,7 @@
                   <li><span>https://www.gst.gov.in/*</span></li>
                   <li><span>https://services.gst.gov.in/*</span></li>
                   <li><span>https://return.gst.gov.in/*</span></li>
+                  <li><span>https://gstr2b.gst.gov.in/*</span></li>
                 </ul>
               </div>
             </section>
@@ -308,23 +308,20 @@
                   </div>
                   <div class="card">
                     <dt>Error diagnostics</dt>
-                    <dd>
-                      Pack pages use Sentry error diagnostics in the Pack telemetry profile with
-                      replay, tracing, logs, request bodies, cookies, and default PII disabled; full
-                      query strings are stripped from request URLs before Pack website diagnostics
-                      leave the app.
-                    </dd>
+                    <dd>None. Pack pages run no error-reporting service.</dd>
                   </div>
                   <div class="card">
                     <dt>Infrastructure logs</dt>
                     <dd>
-                      Standard hosting logs may include ordinary request metadata such as IP
-                      address, user agent, timestamp, path, status, and referrer.
+                      GitHub Pages, which hosts this site, and Cloudflare, which delivers it, may
+                      log ordinary request metadata such as IP address, user agent, timestamp, path,
+                      status, and referrer. Cloudflare may insert its own security script and set
+                      strictly necessary security cookies to filter automated traffic.
                     </dd>
                   </div>
                   <div class="card">
-                    <dt>ComplyEaze app session</dt>
-                    <dd>not initialized or used by Pack pages</dd>
+                    <dt>ComplyEaze account or app session</dt>
+                    <dd>none on Pack pages</dd>
                   </div>
                 </dl>
               </div>
@@ -396,8 +393,9 @@
                   <div class="card">
                     <dt>Processor and recipient review (active)</dt>
                     <dd>
-                      Privacy maintainer: Review hosting logs, Sentry diagnostics, GitHub, and email
-                      inbox handling before broad public distribution.
+                      Privacy maintainer: Review hosting and delivery logs (GitHub Pages and
+                      Cloudflare), GitHub, and email inbox handling before broad public
+                      distribution.
                     </dd>
                   </div>
                   <div class="card">
@@ -422,8 +420,8 @@
               <div>
                 <h2>Who receives data</h2>
                 <div>
-                  Pack separates browser-local extension processing from website diagnostics,
-                  support, and public-source collaboration.
+                  Pack separates browser-local extension processing from website hosting, support,
+                  and public-source collaboration.
                 </div>
               </div>
               <div>
@@ -436,17 +434,10 @@
                     </dd>
                   </div>
                   <div class="card">
-                    <dt>Hosting provider logs</dt>
+                    <dt>Hosting and delivery logs</dt>
                     <dd>
-                      May process ordinary Pack website request metadata such as IP address, user
-                      agent, timestamp, path, status, and referrer.
-                    </dd>
-                  </div>
-                  <div class="card">
-                    <dt>Sentry diagnostics</dt>
-                    <dd>
-                      Receives sanitized Pack website error diagnostics under the Pack telemetry
-                      profile.
+                      GitHub Pages and Cloudflare may process ordinary Pack website request metadata
+                      such as IP address, user agent, timestamp, path, status, and referrer.
                     </dd>
                   </div>
                   <div class="card">
@@ -588,17 +579,17 @@
           </div>
           <div>
             <h4>Project</h4>
-            <a href="https://github.com/lamemustafa/pack" target="_blank" rel="noopener">GitHub</a
+            <a href="https://github.com/ComplyEaze/pack" target="_blank" rel="noopener">GitHub</a
             ><a href="../support/">Support</a
-            ><a href="https://github.com/lamemustafa/pack/issues" target="_blank" rel="noopener"
+            ><a href="https://github.com/ComplyEaze/pack/issues" target="_blank" rel="noopener"
               >Report an issue</a
             ><a
-              href="https://github.com/lamemustafa/pack/blob/HEAD/CHANGELOG.md"
+              href="https://github.com/ComplyEaze/pack/blob/HEAD/CHANGELOG.md"
               target="_blank"
               rel="noopener"
               >Changelog</a
             ><a
-              href="https://github.com/lamemustafa/pack/blob/HEAD/SECURITY.md"
+              href="https://github.com/ComplyEaze/pack/blob/HEAD/SECURITY.md"
               target="_blank"
               rel="noopener"
               >Security policy</a
@@ -608,7 +599,7 @@
             <h4>Legal</h4>
             <a href="../privacy/">Privacy Policy</a><a href="../terms/">Terms of Service</a
             ><a
-              href="https://github.com/lamemustafa/pack/blob/HEAD/LICENSE"
+              href="https://github.com/ComplyEaze/pack/blob/HEAD/LICENSE"
               target="_blank"
               rel="noopener"
               >License</a
