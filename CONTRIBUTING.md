@@ -20,7 +20,7 @@ vulnerability, follow [SECURITY.md](SECURITY.md) and report privately.
 ## Development Setup
 
 ```sh
-git clone https://github.com/lamemustafa/pack.git
+git clone https://github.com/ComplyEaze/pack.git
 cd pack
 corepack enable
 pnpm install --frozen-lockfile

@@ -1,7 +1,7 @@
 # ComplyEaze Pack
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
-[![CI](https://github.com/lamemustafa/pack/actions/workflows/ci.yml/badge.svg)](https://github.com/lamemustafa/pack/actions/workflows/ci.yml)
+[![CI](https://github.com/ComplyEaze/pack/actions/workflows/ci.yml/badge.svg)](https://github.com/ComplyEaze/pack/actions/workflows/ci.yml)
 
 ComplyEaze Pack is a local-first Chrome MV3 browser extension for collecting
 compliance portal documents from an authorised browser session. V0 starts with

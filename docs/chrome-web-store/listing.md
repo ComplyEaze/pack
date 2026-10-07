@@ -14,11 +14,18 @@ Use [`dashboard-closeout.md`](dashboard-closeout.md) for the action sequence.
   maintainer's observation of the Store dashboard; the observation fields are
   not captured in this repository.
 - Superseded package: `v0.3.2`, whose publication evidence chain is complete.
-- GitHub pre-release: <https://github.com/lamemustafa/pack/releases/tag/v0.5.0>.
+- GitHub pre-release: <https://github.com/ComplyEaze/pack/releases/tag/v0.5.0>.
 - Release ZIP SHA-256:
   `1ecea75998ce69ae79caf8e6d27134516320a527d298ef164543cf87f6c07e62`.
 - Chrome Web Store state: `v0.5.0` is published and live, and is the basis for
   Store-published public claims. `v0.3.2` is superseded.
+- Discrepancy observed on 2026-10-07 and not yet reconciled: the public Store
+  page shows Version 0.5.1, updated 2026-09-07, with the `Beta:` summary, which
+  neither tag `v0.5.0` nor tag `v0.5.1` carries. The live package was therefore
+  built from source later than both tags, which this repository does not record. The
+  records above name `v0.5.0` and are the last recorded package until the
+  source commit and ZIP SHA-256 of the 0.5.1 submission are recovered and
+  `expected_version` in the readiness and closeout documents moves with them.
 - The submitted ZIP's bytes are immutable and carry that commit's manifest
   description. Later corrections to the description in this repository do not
   change the published package; they reach users only at the next submission.
@@ -86,7 +93,7 @@ What Pack does not do: file returns, or act on behalf of a taxpayer. Full-year b
 
 The package contains further capability that this listing does not claim, because the release evidence for those claims is not yet recorded.
 
-ComplyEaze Pack is open source under the Apache-2.0 license: https://github.com/lamemustafa/pack
+ComplyEaze Pack is open source under the Apache-2.0 license: https://github.com/ComplyEaze/pack
 
 ComplyEaze Pack is an independent third-party tool. It is not affiliated with, endorsed by, or operated by GSTN, CBIC, or the Government of India.
 ```
